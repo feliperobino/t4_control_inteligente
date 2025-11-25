@@ -90,3 +90,25 @@ for g in gammas:
     run_vi_and_save(env, g, label)
 
 print(f'\n--- Experimento A finalizado === Salidas en {OUTDIR} ---\n')
+
+
+def img_lake(desc):
+    n = len(desc)
+    grid = np.zeros((n, n))
+    for i in range(n):
+        for j in range(n):
+            if desc[i][j] == 'H':
+                grid[i, j] = -1.0
+            elif desc[i][j] == 'G':
+                grid[i, j] = 1.0
+            else:
+                grid[i, j] = 0.0
+    plt.figure(figsize=(5,5))
+    plt.imshow(grid, cmap='coolwarm', interpolation='nearest')
+    for (j, i), val in np.ndenumerate(grid):
+        plt.text(i, j, f"{val:.1f}", ha='center', va='center')
+    plt.title('Frozen Lake Layout')
+    plt.colorbar()
+    plt.show()
+
+img_lake(DESC)

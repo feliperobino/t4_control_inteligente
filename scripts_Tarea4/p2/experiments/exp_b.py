@@ -19,7 +19,7 @@ n_cols = 5
 success_rate = 1/3
 gamma = 0.99
 is_slippery = False   # FIJAR EN FALSE (B)
-n_episodes = 5000
+n_episodes = 100000
 
 OUTDIR = os.path.join(os.getcwd(), "results", "exp_b")
 os.makedirs(OUTDIR, exist_ok=True)
